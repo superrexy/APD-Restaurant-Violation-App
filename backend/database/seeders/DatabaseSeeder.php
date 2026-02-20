@@ -12,6 +12,6 @@ class DatabaseSeeder extends Seeder
 
 	public function run(): void
 	{
-		$this->call([ViolationTypeSeeder::class, UserSeeder::class]);
+		$this->call([ViolationTypeSeeder::class, UserSeeder::class, CameraSeeder::class]);
 	}
 }
