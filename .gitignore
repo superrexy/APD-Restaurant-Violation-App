@@ -1,0 +1,279 @@
+# ============================================================================
+# APD Restaurant Violation - Root .gitignore
+# ============================================================================
+
+# ============================================================================
+# DEPENDENCIES
+# ============================================================================
+
+# Backend - Composer
+backend/vendor/
+backend/composer.lock
+
+# Backend & Frontend - Node.js
+node_modules/
+backend/node_modules/
+frontend/node_modules/
+
+# Lock files (optional - uncomment if using bun/npm lock files)
+# backend/bun.lock
+# backend/package-lock.json
+# frontend/bun.lock
+# frontend/package-lock.json
+
+# Python - uv
+yolo-service/.venv/
+yolo-service/venv/
+yolo-service/uv.lock
+
+# ============================================================================
+# BUILD ARTIFACTS
+# ============================================================================
+
+# Frontend - Vite build output
+frontend/dist/
+frontend/dist-ssr/
+
+# Backend - Laravel Vite build
+backend/public/build/
+backend/public/hot/
+backend/public/storage/
+
+# Python - Build artifacts
+yolo-service/build/
+yolo-service/dist/
+yolo-service/wheels/
+*.egg-info/
+
+# ============================================================================
+# ENVIRONMENT & CONFIG
+# ============================================================================
+
+# Environment files (keep .env.example)
+.env.backup
+.env.production
+*.local
+
+# Composer auth
+backend/auth.json
+
+# ============================================================================
+# CACHE & TEMP FILES
+# ============================================================================
+
+# Laravel - Cache and storage
+backend/bootstrap/cache/
+backend/storage/*.key
+backend/storage/pail/
+backend/storage/logs/
+backend/storage/framework/cache/
+backend/storage/framework/views/
+backend/storage/framework/sessions/
+
+# PHP - PHPUnit cache
+.phpunit.result.cache
+.phpunit.cache/
+backend/.phpunit.result.cache
+
+# PHP - PHPactor
+.phpactor.json
+
+# Python - Bytecode cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Python - Ruff cache
+.ruff_cache/
+
+# Python - pytest cache
+.pytest_cache/
+
+# Python - Coverage
+.coverage
+htmlcov/
+.pytest_cache/
+.coverage.*
+
+# TanStack Router cache
+.tanstack/
+frontend/.tanstack/
+
+# Nitro cache
+.nitro/
+
+# Wrangler cache
+.wrangler/
+
+# ============================================================================
+# LOGS
+# ============================================================================
+
+*.log
+logs/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+backend/storage/logs/*.log
+
+# ============================================================================
+# TEST ARTIFACTS
+# ============================================================================
+
+# Test coverage
+coverage/
+frontend/coverage/
+*.lcov
+
+# Playwright test results
+frontend/.playwright/
+test-results/
+frontend/test-results/
+playwright-report/
+frontend/playwright-report/
+
+# Vitest cache
+.vitest/
+
+# E2E test artifacts (keep config if needed)
+# frontend/e2e/
+
+# Temporary test files
+test_logout_debug.php
+
+# Temporary files
+count.txt
+tmp/
+temp/
+
+# ============================================================================
+# IDE & EDITOR
+# ============================================================================
+
+# VS Code
+.vscode/
+frontend/.vscode/
+
+# Cursor
+.cursorrules
+
+# CTA AI
+.cta.json
+
+# JetBrains IDEs
+.idea/
+.fleet/
+.zed/
+
+# Nova
+.nova/
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Vim
+[._]*.s[a-v][a-z]
+[._]*.sw[a-p]
+[._]s[a-rt-v][a-z]
+[._]ss[a-gi-z]
+[._]sw[a-p]
+Session.vim
+Sessionx.vim
+.netrwhist
+*~
+un~
+
+# Emacs
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+*.elc
+auto-save-list
+tramp
+
+# ============================================================================
+# OPERATING SYSTEM
+# ============================================================================
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+.AppleDB
+.AppleDesktopNetworkStorage
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+*.stackdump
+[Dd]esktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+*.lnk
+
+# Linux
+*~
+.fuse_hidden*
+.directory
+.Trash-*
+.nfs*
+
+# ============================================================================
+# YOLO SERVICE SPECIFIC
+# ============================================================================
+
+# HLS output directory (streaming artifacts)
+yolo-service/output/
+
+# Python version
+.python-version
+
+# Model files (large binary files - recommend git-lfs if tracking)
+# yolo26n.pt
+# yolo-service/models/*.pt
+
+# ============================================================================
+# LARAVEL SPECIFIC
+# ============================================================================
+
+# Laravel Homestead
+Homestead.json
+Homestead.yaml
+auth.json
+
+# API documentation cache (if using Scramble)
+api.json
+
+# ============================================================================
+# DOCKER & DEPLOYMENT
+# ============================================================================
+
+# Docker volumes (if any)
+# docker-volumes/
+
+# Docker override files
+docker-compose.override.yml
+frontend/docker-compose.override.yml
+
+# AGENTS
+AGENTS.md

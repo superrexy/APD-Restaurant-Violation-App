@@ -1,0 +1,28 @@
+services:
+  frontend:
+    container_name: ${CONTAINER_NAME:-yuasa-battery-fe}
+    restart: always
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: ${IMAGE_NAME:-yuasa-battery-fe}
+    ports:
+      - "${PORT:-8001}:80"
+    env_file:
+      - .env
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    # Uncomment jika ingin menambahkan dependency ke backend service yang lain
+    #depends_on:
+    #  - backend
+
+  # Contoh backend placeholder; hapus bila tidak perlu atau sesuaikan alamatnya.
+  #backend:
+  #  image: your-backend-image
+  #  container_name: yuasa-backend
+  #  ports:
+  #    - "8081:8080"
+
+networks:
+  default:
+    driver: bridge
