@@ -1,7 +1,7 @@
 """Configuration file for HLS CCTV Streamer"""
 
 # Stream Configuration
-STREAM_SOURCE_TYPE = "file"  # url, webcam, or file
+STREAM_SOURCE_TYPE = "webcam"  # url, webcam, or file
 STREAM_URL = "https://cctv-dishub.tangerangkab.go.id/storage/video/01jsrepbfdrenxw1k42nxw94c5/01jsrepbfdrenxw1k42nxw94c5.m3u8"
 WEBCAM_DEVICE_INDEX = 0
 STREAM_FILE_PATH = "assets/demo.mp4"
