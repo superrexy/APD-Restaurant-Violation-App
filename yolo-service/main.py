@@ -1,7 +1,7 @@
 """HLS CCTV Streamer - Main Orchestration"""
 
 import asyncio
-import cv2
+import tempfile
 import threading
 import time
 import glob
@@ -98,18 +98,23 @@ class ViolationSubmitter:
         """Process pending violations"""
         with self._lock:
             violations_to_submit = list(self.pending_violations.items())
-            self.pending_violations.clear()
 
         for violation_type, frames in violations_to_submit:
             if self.violation_queue.can_submit(violation_type):
                 for frame_data in frames[:1]:
                     await self._submit_single_violation(violation_type, frame_data)
+                    with self._lock:
+                        self.pending_violations.pop(violation_type, None)
 
-    async def _submit_single_violation(self, violation_type: str, frame_data: tuple):
         """Submit a single violation to backend"""
         frame, detection_info = frame_data
 
-        temp_path = f"/tmp/violation_{int(time.time())}_{violation_type}.jpg"
+        temp_file = tempfile.NamedTemporaryFile(
+            suffix=f"_{violation_type}.jpg",
+            delete=False
+        )
+        temp_path = temp_file.name
+        temp_file.close()
         cv2.imwrite(temp_path, frame)
 
         try:
