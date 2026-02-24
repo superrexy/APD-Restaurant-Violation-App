@@ -19,6 +19,7 @@ from modules import (
 from modules import StreamInfo, SSEncoder, frame_queue, system_status
 from modules import BackendClient, ViolationQueue
 import config
+import cv2
 
 
 def cleanup_output_dir():
@@ -106,6 +107,10 @@ class ViolationSubmitter:
                     with self._lock:
                         self.pending_violations.pop(violation_type, None)
 
+
+    async def _submit_single_violation(
+        self, violation_type: str, frame_data: tuple
+    ):
         """Submit a single violation to backend"""
         frame, detection_info = frame_data
 
